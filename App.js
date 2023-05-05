@@ -8,7 +8,7 @@ export default function App() {
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
 
-  const handleAddProduct = () => {
+  const addProduct = () => {
     if (id !== '' && description !== '' && price !== '' && quantity !== '') {
       const productExists = products.find((product) => product.id === id);
 
@@ -27,7 +27,7 @@ export default function App() {
     }
   };
 
-  const handleDeleteProduct = () => {
+  const deleteProduct = () => {
     const index = products.findIndex((product) => product.id === id);
 
     if (index >= 0) {
@@ -43,7 +43,7 @@ export default function App() {
     }
   };
 
-  const handleEditProduct = () => {
+  const editProduct = () => {
     if (id !== '' && description !== '' && price !== '' && quantity !== '') {
       const index = products.findIndex((product) => product.id === id);
 
@@ -97,13 +97,13 @@ export default function App() {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleAddProduct}>
+        <TouchableOpacity style={styles.button} onPress={addProduct}>
           <Text style={styles.buttonText}>ADICIONAR</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleDeleteProduct}>
+        <TouchableOpacity style={styles.button} onPress={deleteProduct}>
           <Text style={styles.buttonText}>APAGAR</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleEditProduct}>
+        <TouchableOpacity style={styles.button} onPress={editProduct}>
           <Text style={styles.buttonText}>EDITAR</Text>
         </TouchableOpacity>
       </View>
